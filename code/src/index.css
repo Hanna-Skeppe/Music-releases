@@ -1,0 +1,235 @@
+* {
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000;
+  color: #fff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.root {
+  width: 100vw;
+  margin: 0;
+}
+
+header {
+  border-bottom: 0.5px solid #a0a0a0;
+  margin: 0 auto 15px auto;
+  width: 90vw;
+}
+
+h1 {
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+.album-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  width: 100vw;
+}
+
+.album {
+  width: 90%;
+  margin: 0 10px;
+}
+
+.album-cover {
+  position: relative;
+  width: 100%;
+}
+
+.album-cover img {
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: .5s ease;
+}
+
+.heart-icon {
+  position: absolute;
+  fill: #fff;
+  width: 10%;
+  top: 42%;
+  left: 14%;
+  opacity: 0;
+  transition: .5s ease;
+}
+
+.play-icon {
+  position: absolute;
+  fill: #fff;
+  width: 20%;
+  top: 38%;
+  left: 40%;
+  opacity: 0;
+  transition: transform .5s ease; 
+}
+
+.dots-icon {
+  position: absolute;
+  fill: #fff;
+  width: 10%;
+  top: 42%;
+  left: 76%;
+  opacity: 0;
+  transition: .5s ease;
+}
+/* Lower the opacity of the play button icons*/
+.album-cover:hover 
+.heart-icon,
+.play-icon,
+.dots-icon  {
+  opacity: .6;
+} 
+
+.album-cover:hover
+.overlay {
+  opacity: 1;
+}
+
+/* and then when you hover over the play button, it should have full opacity  */
+.play-icon:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+
+.album-name {
+  margin: 8px 0;
+}
+
+.artist-name {
+  color: #a0a0a0;
+}
+
+.album-info:hover {
+  text-decoration: underline;
+  -webkit-text-decoration: underline;
+  color: #ffffff;
+}
+
+.artist-info:hover {
+  text-decoration: underline;
+  -webkit-text-decoration: underline;
+  color: #a0a0a0;
+}
+
+.artist-name {
+  margin-bottom: 15px;
+
+}
+
+.artist-info,
+.album-info {
+  font-size: 14px;
+  font-family: helvetica, sans-serif;
+  text-decoration: none;
+}
+
+.artist-info { 
+  color: #a0a0a0;
+}
+
+.album-info {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* We solved this with Javascript instead, so therefore we commented it out, 
+but leaved it here to remember what we did */
+/* This puts a comma after the artist, but not after the last artist */
+/* .artist-name a:not(:last-of-type):after{
+  content: ", ";
+}   */
+/* 
+.artist-name a:nth-last-of-type(2):before{
+  content: none;
+} */
+/* puts "&" after the second last artist (so if only two artists there is an "&")*/
+/* .artist-name a:nth-last-of-type(2):after {
+  content: " & ";
+}  */
+
+.footer-text {
+  font-size: 15px;
+  text-align: center;
+  margin: 15px 0;
+  padding: 10px;
+}
+
+@media (min-width: 500px) {
+  .album {
+    width: 70%;
+  } 
+}
+
+@media (min-width: 630px) {
+  header {
+    margin-bottom: 20px;
+    width: 85vw;
+  }
+
+  .album {
+    width: 40%;
+    margin: 0 20px;
+  } 
+}
+
+@media (min-width: 800px) {
+  .album {
+    margin: 0 40px;
+    max-width: 300px;
+  } 
+}
+
+@media (min-width: 1024px) {
+  header {
+    margin-bottom: 30px;
+    width: 95vw;
+  }
+
+  .album {
+    width: 21%;
+    margin: 0 20px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .album {
+    width: 310px;
+    height: 410px;
+    margin: 0 25px;
+  }
+}
+
+@media (min-width: 1700px) {
+  header {
+    width: 90vw;
+  }
+
+  .album {
+    margin: 0 50px;
+  } 
+}
