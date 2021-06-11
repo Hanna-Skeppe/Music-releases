@@ -1,27 +1,38 @@
 import React from 'react'
-import data from './data.json'
-import MusicHeader from './MusicHeader'
-import MusicElement from './MusicElement'
-import Footer from 'Footer'
+import { Header } from './Header'
+import { Playlists } from './Playlists'
+import { AlbumGallery } from './AlbumGallery'
+import data from './data.json';
+import stretchgoalData from './stretch-goal.json';
 
-//This is the file where we import all our components!
+const releases = data.albums.items;
+const albums = releases.filter((album) => album.album_type === 'album');
+const singles = releases.filter((album) => album.album_type === 'single');
+const playlists = stretchgoalData.playlists.items;
+
 export const App = () => {
+  
   return (
-    <section>
-      <MusicHeader />
-      <div className="album-wrapper">
-        {data.albums.items.map((album) => (
-          <MusicElement
-            key={album.id}
-            image={album.images[1].url}
-            albumName={album.name}
-            albumUrl={album.external_urls.spotify}
-            item={album}
-          />
-        ))}
-      </div>
-      <Footer />
-    </section>
+    <>
+    <Header />
+    <main className="app__grid"> 
+      
+      <Playlists playlists={playlists} />
+      
+      <section className="album__gallery-wrapper"> 
+        <AlbumGallery
+          title="Singles"
+          data={singles} />
+      </section>
+      
+      <section className="album__gallery-wrapper albums__wrapper"> 
+        <AlbumGallery 
+          title="Albums"
+          data={albums} />
+      </section>
+    
+    </main>
+    </>
   )
 }
 
