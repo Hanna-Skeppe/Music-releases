@@ -24,12 +24,15 @@ body {
 .app__grid {
   margin: 0;
   display: grid;
-  /* grid-template-columns: 1fr, 2fr; DETTA BITER INTE */
-  grid-column-gap: 3rem;
-  /* column-gap: 3rem; */
-  grid-row-gap: 5rem;
-  /* row-gap: 5rem; */
-  justify-content: center;
+  grid-template-columns: 1fr 1fr;
+  /* display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 35px;
+  -webkit-column-gap: 35px;
+  column-gap: 35px;
+  grid-row-gap: 50px;
+  row-gap: 50px;
+  justify-content: center; */
 }
 
 /* playlist */
@@ -39,6 +42,8 @@ body {
   justify-content: flex-start;
   align-items: center;
   margin-top: 60px;
+  grid-row-start: 1;
+  grid-row-end: 3;
 }
 
 .playlist__header {
@@ -63,24 +68,36 @@ body {
 .album__gallery-wrapper {
   display: grid;
   grid-template-columns: 1fr;
+  /* display: grid;
+  grid-template-columns: 1fr;
   grid-column: 2/3;
   grid-row: 1;
   grid-gap: 25px;
-  gap: 25px;
+  gap: 25px; */
+}
+
+.album__gallery-header {
+  font-size: 18px;
+  border-bottom: 1px solid #a0a0a0;
+  padding-bottom: 5px;
 }
 
 .albums__wrapper {
-  grid-row: 2;
+  grid-column-start: 2;
+  /* grid-row: 2; */
 }
 
-/* .album__container {
-  
-} */
+.album__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .album__cover {
   position: relative;
-  width: 100%;
   margin: 0 0 1rem 0;
+  display: flex;
+  align-items: center;
 }
 
 .album__cover-image {
@@ -143,9 +160,53 @@ body {
   transform: scale(1.2);
   opacity: 1;
 }
-/* @media (min-width: 768px) {
+
+.album__text__wrapper {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.album__name__link {
+  font-size: 14px; 
+  /* Why does the album-cover size change when I change the font-size here? */
+  text-decoration: none;
+  color: #fff;
+}
+
+
+
+ @media (min-width: 768px) {
   .app__grid {
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr 2fr;
+  }
+  .album__gallery-wrapper {
+    grid-template-rows: 70px auto;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
   }
 
-} */
+  .album__gallery-header {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  /* .album__card {
+      align-items: unset;
+  }  */
+} 
+
+@media (min-width: 1024px) {
+  .app__grid {
+    grid-template-columns: 1fr 4fr;
+  }
+
+  .album__gallery-wrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .album__gallery-header {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+}

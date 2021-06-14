@@ -7,7 +7,6 @@ export const AlbumGallery = (props) => {
   return (
     <>
       <h2 className="album__gallery-header">{props.title}</h2>
-      <article className="album__container">
         {props.data.map((album) => {
           return (
             <Album 
@@ -19,7 +18,6 @@ export const AlbumGallery = (props) => {
               item={album}/>
           )
         })}
-      </article>
     </>
   );
 }
